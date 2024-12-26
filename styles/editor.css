@@ -87,25 +87,44 @@
     fill: var(--text) !important;
 }
 
-.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+.ql-snow .ql-picker.ql-expanded .ql-picker-options,
+.ql-snow .ql-picker-options,
+.ql-snow .ql-tooltip {
     border-color: var(--border) !important;
     background: var(--background) !important;
     border-radius: var(--border-radius-sm);
     box-shadow: var(--shadow-effect);
-    z-index: 9999 !important;
+    z-index: 99999 !important;
     position: fixed !important;
-    margin-top: 5px !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    max-height: 300px !important;
+    max-width: 90vw !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) transparent;
+    padding: var(--spacing-sm) !important;
 }
 
-.ql-snow .ql-tooltip {
-    background: var(--background) !important;
-    border-color: var(--border) !important;
-    box-shadow: var(--shadow-effect);
-    color: var(--text) !important;
-    border-radius: var(--border-radius-sm);
-    padding: var(--spacing-sm) !important;
-    z-index: 9999 !important;
-    position: fixed !important;
+.ql-snow .ql-picker.ql-expanded .ql-picker-options::-webkit-scrollbar,
+.ql-snow .ql-picker-options::-webkit-scrollbar,
+.ql-snow .ql-tooltip::-webkit-scrollbar {
+    width: 6px;
+}
+
+.ql-snow .ql-picker.ql-expanded .ql-picker-options::-webkit-scrollbar-track,
+.ql-snow .ql-picker-options::-webkit-scrollbar-track,
+.ql-snow .ql-tooltip::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.ql-snow .ql-picker.ql-expanded .ql-picker-options::-webkit-scrollbar-thumb,
+.ql-snow .ql-picker-options::-webkit-scrollbar-thumb,
+.ql-snow .ql-tooltip::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 3px;
 }
 
 .ql-snow .ql-picker.ql-color .ql-picker-label,
@@ -113,12 +132,10 @@
     color: var(--text) !important;
 }
 
-.ql-snow .ql-picker-options {
-    background: var(--background) !important;
-    border-color: var(--border) !important;
-    border-radius: var(--border-radius-sm) !important;
-    z-index: 9999 !important;
-    position: fixed !important;
+.ql-snow .ql-picker-options .ql-picker-item:hover,
+.ql-snow .ql-picker-options .ql-picker-item.ql-selected {
+    background-color: var(--primary-light) !important;
+    color: var(--text) !important;
 }
 
 .ql-toolbar.ql-snow {
@@ -127,4 +144,13 @@
 
 .ql-toolbar.ql-snow .ql-picker-label {
     border-color: var(--border) !important;
+}
+
+@media (max-width: 768px) {
+    .ql-snow .ql-picker.ql-expanded .ql-picker-options,
+    .ql-snow .ql-picker-options,
+    .ql-snow .ql-tooltip {
+        max-width: 95vw !important;
+        max-height: 50vh !important;
+    }
 }
